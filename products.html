@@ -9,11 +9,16 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/products.css" rel="stylesheet">
+  <link  href="css/theme-products.css" rel="stylesheet">
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+   <label class="switch">
+    <input type="checkbox" id="theme-toggle">
+    <span class="slider round"></span>
+     </label>
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +27,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link active" href="index.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -31,31 +36,108 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-          </li>
+                        <a class="nav-link" href="cart.html">
+                            🛒 Mi carrito <span id="cart-count" class="badge bg-warning text-dark">0</span>
+                        </a>
+
+    
+     <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img id="imagenPerfilNav" src="" alt="Imagen de perfil" style="width: 30px; height: 30px; border-radius: 50%; display: none; margin-right: 8px;">
+        <span id="nombreDeUsuario">Usuario</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#" id="logoutBtn">Cerrar Sesión</a></li>
+    </ul>
+</li>
+        </li>
         </ul>
       </div>
     </div>
   </nav>
+  
   <main class="pb-5 container">
-    <div class="container">
-      <div class="card-product" id="card-product">
-        <img src="" alt="Imagen del producto" class="card-img-top" id="img-product">
-        <div class="card-body">
-          <h5 class="card-title" id="product-title"></h5>
-          <p class="card-text" id="product-description"></p>
-          <p class="card-text" id="product-price"></p>
-          <button class="btn" id="add-to-cart">Agregar al carrito</button>
+  <h1 class="mb-4">Nuestros Productos</h1>
+
+  <!-- Barra superior con buscador y filtros -->
+  <section id="barra-filtros" class="card p-3 shadow-sm mb-4">
+    <div class="row g-3 align-items-center">
+
+      <!-- Buscador -->
+      <div class="col-md-4">
+        <input type="search" id="buscador" class="form-control" placeholder="Buscar productos...">
+      </div>
+
+      <!-- Precio mínimo -->
+      <div class="col-md-2">
+        <input type="number" id="precioMinimo" class="form-control" placeholder="Precio mín.">
+      </div>
+
+      <!-- Precio máximo -->
+      <div class="col-md-2">
+        <input type="number" id="precioMaximo" class="form-control" placeholder="Precio máx.">
+      </div>
+
+      <!-- Botones filtrar/limpiar -->
+      <div class="col-md-2 d-flex gap-2">
+        <button id="btnFiltrar" class="btn btn-dark btn-sm">Filtrar</button>
+        <button id="btnLimpiar" class="btn btn-outline-secondary btn-sm">Limpiar</button>
+      </div>
+
+      <!-- Botones de orden -->
+      <div class="col-md-2 d-flex gap-2 flex-wrap">
+        <button id="ordenAsc" class="btn btn-primary btn-sm">↑Asc</button>
+        <button id="ordenDesc" class="btn btn-primary btn-sm">↓Des</button>
+        <button id="ordenRel" class="btn btn-primary btn-sm">★Rel</button>
       </div>
     </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
+  </section>
+
+  <!-- Productos -->
+  <section>
+    <div class="productos-grid mb-5"></div>
+  </section>
+</main>
+    <!-- Footer -->
+     <footer class="bg-dark text-white mt-5 py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>e-Mercado</h5>
+            <p>Tu tienda en línea de confianza</p>
+          </div>
+          <div class="col-md-3">
+            <h5>Contacto</h5>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-envelope me-2"></i> contacto@emercado.com</li>
+              <li><i class="fas fa-phone me-2"></i> +123 456 7890</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>Enlaces</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="text-white">Inicio</a></li>
+              <li><a href="categories.html" class="text-white">Categorías</a></li>
+              <li><a href="sell.html" class="text-white">Vender</a></li>
+              <li class="nav-item"><a class="nav-link" href="cart.html">Carrito</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4">
+        <div class="text-center">
+          <p class="mb-0">&copy; 2025 e-Mercado. Todos los derechos reservados.</p>
+        </div>
+      </div>
+      <div class="container">
+        <p class="float-end">
+          <a href="#" class="text-white">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" class=" text-white" target="_blank">Jóvenes a Programar</a></p>
+      </div>
+</footer>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -64,9 +146,13 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
-</body>
+  <script src="js/user.js"></script>
+  <script src="js/theme.js"></script>
+   <script src ="js/cart.js"></script>
 
+</body>
 </html>
